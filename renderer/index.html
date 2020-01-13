@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Probe播放器</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/css/all.css">
+        <link rel="stylesheet" href="./index.css">
+    </head>
+
+    <body>
+        <div class="container mt-4">
+            <h1>My Player</h1>
+            <button type="button" id="add-new-button" class="btn btn-primary btn-lg btn-block mt-4">add songs to lib</button>
+            <div id="tracksList" class="mt-4">      
+            </div>
+        </div>
+        <div class="container fixed-bottom bg-white pb-4">
+            <hr/>
+            <div class="row my-2" id="player-status">     
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-success" id="player-progress" role="progressbar" style="width: 0%;">
+                    0%
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        require('./index.js')
+    </script>
+</html>
