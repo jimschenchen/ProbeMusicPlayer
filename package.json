@@ -4,7 +4,40 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --watch main.js --exec electron ."
+    "start": "nodemon --watch main.js --exec electron .",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "ElectronMusicPlayer",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    }, 
+    "dmg": {
+      "background": "build/appdmg.jpg",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "Window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "win": {
+      "target": "nsis-web",
+      "icon": "build/icon.ico"
+    }
   },
   "repository": "https://github.com/jimschenchen/ProbeMusicPlayer",
   "keywords": [
@@ -18,6 +51,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^7.1.7",
+    "electron-builder": "^21.2.0",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
