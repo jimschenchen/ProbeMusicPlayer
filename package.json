@@ -1,17 +1,17 @@
 {
-  "name": "electron-quick-start",
+  "name": "probe_music_player",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "nodemon --watch main.js --exec electron .",
-    "dist": "build"
+    "dist": "electron-builder"
   },
   "build": {
     "appId": "ElectronMusicPlayer",
     "mac": {
       "category": "public.app-category.developer-tools"
-    }, 
+    },
     "dmg": {
       "background": "build/appdmg.jpg",
       "icon": "build/icon.icns",
@@ -29,14 +29,27 @@
           "type": "file"
         }
       ],
-      "Window": {
+      "window": {
         "width": 500,
         "height": 500
       }
     },
     "win": {
-      "target": "nsis-web",
+      "target": [
+        {
+          "target": "nsis-web",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
       "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": false
     }
   },
   "repository": "https://github.com/jimschenchen/ProbeMusicPlayer",
